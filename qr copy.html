@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Designed QR Code</title>
+  <script src="https://unpkg.com/qr-code-styling@1.6.0/lib/qr-code-styling.js"></script>
+</head>
+
+<body style="text-align:center; font-family:Arial; background:#f4f6f8; padding-top:50px;">
+
+  <h2>Sparkwise Solution QR Code</h2>
+
+  <div id="qr-code"></div>
+  <br>
+  <button onclick="downloadQR()">Download QR</button>
+
+  <script>
+    const qrCode = new QRCodeStyling({
+      width: 300,
+      height: 300,
+      data: "https://sparkwisesolution.com",
+      dotsOptions: {
+        color: "#0A3D62",
+        type: "rounded"
+      },
+      cornersSquareOptions: {
+        color: "#1B9CFC",
+        type: "extra-rounded"
+      },
+      cornersDotOptions: {
+        color: "#0A3D62",
+        type: "dot"
+      },
+      backgroundOptions: {
+        color: "#ffffff"
+      },
+      imageOptions: {
+        crossOrigin: "anonymous",
+        margin: 5
+      }
+      // To add logo, uncomment below line and add logo URL
+      // image: "logo.png"
+    });
+
+    qrCode.append(document.getElementById("qr-code"));
+
+    function downloadQR() {
+      qrCode.download({ name: "sparkwisesolution-qr", extension: "png" });
+    }
+  </script>
+
+</body>
+</html>

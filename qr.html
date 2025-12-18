@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>QR Code with Center Image</title>
+  <script src="https://unpkg.com/qr-code-styling@1.6.0/lib/qr-code-styling.js"></script>
+</head>
+
+<body style="text-align:center; font-family:Arial; background:#f4f6f8; padding-top:50px;">
+
+  <h2>Sparkwise Solution QR Code</h2>
+
+  <div id="qr-code"></div>
+  <br>
+  <button onclick="downloadQR()">Download QR</button>
+
+  <script>
+    const qrCode = new QRCodeStyling({
+      width: 320,
+      height: 320,
+      data: "https://sparkwisesolution.com",
+
+      image: "logo.png",   // ⭐ CENTER IMAGE
+
+      dotsOptions: {
+        color: "#0A3D62",
+        type: "rounded"
+      },
+      cornersSquareOptions: {
+        color: "#1B9CFC",
+        type: "extra-rounded"
+      },
+      cornersDotOptions: {
+        color: "#0A3D62",
+        type: "dot"
+      },
+      backgroundOptions: {
+        color: "#ffffff"
+      },
+      imageOptions: {
+        crossOrigin: "anonymous",
+        margin: 8,
+        imageSize: 0.25  // ⭐ Logo size (20–30% recommended)
+      }
+    });
+
+    qrCode.append(document.getElementById("qr-code"));
+
+    function downloadQR() {
+      qrCode.download({
+        name: "sparkwisesolution-qr",
+        extension: "png"
+      });
+    }
+  </script>
+
+</body>
+</html>
